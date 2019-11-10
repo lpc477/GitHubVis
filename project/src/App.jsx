@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import Button from './components/Button.jsx';
 class App extends Component {
-  render() {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this)
+  }
+handleClick(e) {
+    alert("The button was clicked");
+  }
+render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -9,6 +17,7 @@ class App extends Component {
         <p className="App-intro">
           Watch this space...
         </p>
+        <Button handleClick={this.handleClick}/>
       </div>
     );
   }
