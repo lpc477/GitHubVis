@@ -5,6 +5,7 @@ import SortedList from './components/SortedList.jsx';
 import ProfileDetails from './components/ProfileDetails.jsx';
 import LanguageList from './components/LanguageList.jsx';
 import lda from 'lda';
+import './App.css';
 class App extends Component {
   constructor() {
     super();
