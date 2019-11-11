@@ -7,7 +7,8 @@ import Moment from 'react-moment';const SortedList = (props) => {
             <li key={repitem.id}>
               <div>
                 <div>
-                  <a href={repitem.html_url} target="_blank">{repitem.name}</a> || Started <Moment from={new Date()}>{repitem.created_at}</Moment>
+                  <a rel="noopener noreferrer" href={repitem.html_url} target="_blank">{repitem.name}</a> ||
+                  Started <Moment from={new Date()}>{repitem.created_at}</Moment>
                 </div>
                 <div>
                   <i>{repitem.description}</i>
