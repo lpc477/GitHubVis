@@ -1,4 +1,5 @@
-import React from 'react';const LanguageList = (props) => {
+import React from 'react';
+const LanguageList = (props) => {
   if (props.langslist) {
     return (
         <ul>
@@ -10,4 +11,4 @@ import React from 'react';const LanguageList = (props) => {
         </ul>
       )
   } else { return null;}
-  };export default LanguageList;
+};export default LanguageList;

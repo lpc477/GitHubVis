@@ -92,7 +92,7 @@ class App extends Component {
           By Liam Collins
         </p>
         <hr></hr>
-        <Form
+        <Form                         //components displays 
           formData={this.state.formData}
           handleUserFormSubmit={this.handleUserFormSubmit}
           handleFormChange={this.handleFormChange}
