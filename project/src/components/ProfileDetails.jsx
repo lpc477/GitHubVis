@@ -1,5 +1,6 @@
 import React from 'react';
-import Moment from 'react-moment';const imgStye = {
+import Moment from 'react-moment';
+const imgStye = {
   borderRadius: "50%",
   width: "250px",
   height: "250px"
