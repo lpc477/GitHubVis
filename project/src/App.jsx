@@ -9,9 +9,14 @@ import LanguageList from './components/LanguageList.jsx';
 //import Pie from './components/Pie.jsx';
 import lda from 'lda';
 import './App.css';
+import 'react-bootstrap';
+//import 'dash';
 import './.env';
+import 'react';
+//import'bootstrap/dist/css/bootstrap.css';
+//import'bootstrap/dist/css/bootstrap-theme.css';
 require ('dotenv').config('./.env');
-export const token = process.env['ACCESS_TOKEN'];
+export const token = process.env['ACCESS_TOKEN']; //insert own token
 class App extends Component {
   constructor() {
     super();
@@ -90,6 +95,7 @@ class App extends Component {
     this.setState(obj);
   };render() {
     return (
+      <html>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">GitHub Analytics</h1>
@@ -120,6 +126,7 @@ class App extends Component {
         {/*<Pie langslist={this.state.replanguagecount}/>*/}
         {/*Not confirmed as working*/}
       </div>
+      </html>
     );
   }
 } export default App;
