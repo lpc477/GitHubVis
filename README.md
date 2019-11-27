@@ -36,3 +36,5 @@ axios.get('https://api.github.com/users/'+this.state.formData.username+'?'+ toke
 This way of getting the data is powerful, because it allows for a alot of flexibility for the programmer to do a lot with the massive amount of data GitHub has on each user. 
 
 ## Fontend
+I used a simple .css file to style the page minimally, but there is a lot of possiblity throught the project to add. In retrospect, I wish I looked at things like Bootstrap earlier, as add that framework in the middle 
+
