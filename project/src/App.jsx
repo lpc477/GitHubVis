@@ -1,10 +1,22 @@
+
 import React, { Component } from 'react';
-import axios from 'axios';import Form from './components/Form.jsx';
-import Button from './components/Button.jsx';
+import axios from 'axios';
+import Form from './components/Form.jsx';
+//import Button from './components/Button.jsx';
 import SortedList from './components/SortedList.jsx';
 import ProfileDetails from './components/ProfileDetails.jsx';
 import LanguageList from './components/LanguageList.jsx';
+//import Pie from './components/Pie.jsx';
 import lda from 'lda';
+import './App.css';
+import 'react-bootstrap';
+//import 'dash';
+import './.env';
+import 'react';
+//import'bootstrap/dist/css/bootstrap.css';
+//import'bootstrap/dist/css/bootstrap-theme.css';
+require ('dotenv').config('./.env');
+export const token = process.env['ACCESS_TOKEN']; //insert own token
 class App extends Component {
   constructor() {
     super();
@@ -24,13 +36,13 @@ class App extends Component {
     this.handleFormChange= this.handleFormChange.bind(this);
   }handleUserFormSubmit(event) {
     event.preventDefault();
-    axios.get('https://api.github.com/users/'+this.state.formData.username)
+    axios.get('https://api.github.com/users/'+this.state.formData.username+'?'+ token)
     .then(response => this.setState({
       gitun: response.data.login,
       infoclean: response.data,
       info : JSON.stringify(response.data, undefined, 2)
     })).catch((err) => { console.log(err); });
-    axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos')
+    axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos?'+ token)
     .then(response => {var itemsWithFalseForks = response.data.filter(item => item.fork === false);
       var sortedItems = itemsWithFalseForks.sort((b,a) => {
         if((a.watchers_count +  a.forks_count) < (b.forks_count + b.watchers_count)){
@@ -47,7 +59,7 @@ class App extends Component {
         repitems: sortedItems.slice(0,10),
         replanguagecount: dictrlc,
       })}).catch((err) => { console.log(err); });
-      axios.get('https://api.github.com/users/'+this.state.formData.username+'/starred')
+      axios.get('https://api.github.com/users/'+this.state.formData.username+'/starred?'+ token)
     .then(response => {var itemsWithFalseForks = response.data.filter(item => item.fork === false);
       var sortedItems = itemsWithFalseForks.sort((b,a) => {
         if((a.watchers_count +  a.forks_count) < (b.forks_count + b.watchers_count)){
@@ -83,6 +95,7 @@ class App extends Component {
     this.setState(obj);
   };render() {
     return (
+      <html>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">GitHub Analytics</h1>
@@ -91,25 +104,29 @@ class App extends Component {
           By Liam Collins
         </p>
         <hr></hr>
+        {/* Components Display */}
         <Form
           formData={this.state.formData}
           handleUserFormSubmit={this.handleUserFormSubmit}
           handleFormChange={this.handleFormChange}
         />
         <hr></hr>
-        Profile Details:
+        <p>Profile Details:</p>
         <ProfileDetails infoclean={this.state.infoclean}/>
         <hr></hr>
-        Own Repositories:
+        <p>Own Repositories:</p>
         <SortedList repitems={this.state.repitems}/>
         <hr></hr>
-        Starred Repositories:
+        <p>Starred Repositories:</p>
         <SortedList repitems={this.state.staritems}/>
         <hr></hr>
-        Own Repos Language Count:
+        <p>Own Repos Language Count:</p>
         <LanguageList langslist={this.state.replanguagecount}/>
-         Keywords:  {this.state.keywords}
+        {/*Keywords:  {this.state.keywords}*/}
+        {/*<Pie langslist={this.state.replanguagecount}/>*/}
+        {/*Not confirmed as working*/}
       </div>
+      </html>
     );
   }
 } export default App;
