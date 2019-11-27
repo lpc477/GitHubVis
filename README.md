@@ -38,3 +38,4 @@ This way of getting the data is powerful, because it allows for a alot of flexib
 ## Fontend
 I used a simple .css file to style the page minimally, but there is a lot of possiblity throught the project to add. In retrospect, I wish I looked at things like Bootstrap earlier, as add that framework in the middle 
 
+![alt text](https://github.com/lpc477/GitHubVis/blob/master/Screenshot%20(6).png?raw=true "Title")
